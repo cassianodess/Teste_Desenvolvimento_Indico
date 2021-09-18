@@ -23,7 +23,7 @@ def setDataBaseRepository(data):  # Set database with CSV File data if not exist
 
 
 def setRepository():  # Get data from CSV File
-    df = pd.read_csv("repository/Fast_Food_Restaurants_US.csv")
+    df = pd.read_csv("service/Fast_Food_Restaurants_US.csv")
 
     # Ignoring first column (index)
     df.drop(columns=df.columns[0], inplace=True)
@@ -32,6 +32,16 @@ def setRepository():  # Get data from CSV File
     setDataBaseRepository(
         df.to_dict("records")
     )
+
+
+def verifyColumns(dic):  # Check if fields are valids
+
+    df = pd.read_csv("service/Fast_Food_Restaurants_US.csv")
+
+    # Ignoring first column (index)
+    df.drop(columns=df.columns[0], inplace=True)
+
+    return df.to_dict().keys() == dic.keys()
 
 
 def findAll():  # Returns all fast food instances
