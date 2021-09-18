@@ -1,6 +1,3 @@
-from warnings import catch_warnings
-
-from bson.objectid import ObjectId
 from flask import Flask, jsonify, make_response, request
 
 import service.fastFoodService as service
@@ -56,7 +53,6 @@ def API_update(id):
                 return jsonify(service.update(id, obj))
             except:
                 return make_response(f"Id '{id}' not found!", 404)
-                pass
         except:
             return make_response(f"Id '{id}' not found!", 404)
 
@@ -64,4 +60,4 @@ def API_update(id):
         return make_response(f"Invalid Body!", 401)
 
 
-app.run(port=8080, debug=True)
+app.run(port=8080)
