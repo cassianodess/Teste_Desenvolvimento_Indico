@@ -10,7 +10,6 @@ service.setRepository()  # Create a dataBase if not exists
 
 @app.route("/all", methods=["GET"])
 def API_findAll():
-    # Não está retornando a lista
     return jsonify(service.findAll())
 
 
