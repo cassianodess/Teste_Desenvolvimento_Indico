@@ -5,25 +5,34 @@ from bson.objectid import ObjectId
 
 
 def setRepository():  # Get data from CSV File
-    df = pd.read_csv("service/Fast_Food_Restaurants_US.csv")
 
-    # Ignoring first column (index)
-    df.drop(columns=df.columns[0], inplace=True)
+    try:
 
-    # sending as a dict
-    repo.setDataBaseRepository(
-        df.to_dict("records")
-    )
+        df = pd.read_csv("src/Fast_Food_Restaurants_US.csv")
+
+        # Ignoring first column (index)
+        df.drop(columns=df.columns[0], inplace=True)
+
+        # sending as a dict
+        repo.setDataBaseRepository(
+            df.to_dict("records")
+        )
+    except:
+        print("File not Found!")
 
 
 def verifyColumns(dic):  # Check if fields are valids
 
-    df = pd.read_csv("service/Fast_Food_Restaurants_US.csv")
+    try:
 
-    # Ignoring first column (index)
-    df.drop(columns=df.columns[0], inplace=True)
+        df = pd.read_csv("src/Fast_Food_Restaurants_US.csv")
 
-    return df.to_dict().keys() == dic.keys()
+        # Ignoring first column (index)
+        df.drop(columns=df.columns[0], inplace=True)
+
+        return df.to_dict().keys() == dic.keys()
+    except:
+        print("File not Found!")
 
 
 def findAll():  # Returns all fast food instances
