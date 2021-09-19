@@ -13,9 +13,15 @@ def setRepository():  # Get data from CSV File
         # Ignoring first column (index)
         df.drop(columns=df.columns[0], inplace=True)
 
-        # sending as a dict
+        lojasList = df.to_dict("records")
+
+        # getting websites as list
+        for loja in lojasList:
+            loja.update({"websites": str(loja["websites"]).split(",")})
+
+        # persisting in dataBase
         repo.setDataBaseRepository(
-            df.to_dict("records")
+            lojasList
         )
     except:
         print("File not Found!")
