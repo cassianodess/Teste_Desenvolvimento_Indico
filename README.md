@@ -3,10 +3,9 @@
 consideração os design patterns mais conhecidos no mercado.
 O candidato pode utilizar as bibliotecas que melhor se adequarem e os frameworks que quiser
 para realizar o teste, porém deverá seguir algumas regras:
-●
-●
-Utilizar Python ou GO
-Utilizar alguma arquitetura de estrutura de design (CLEAN, DDD)
+* Utilizar Python ou GO
+* Utilizar alguma arquitetura de estrutura de design (CLEAN, DDD)
+
 Em anexo há um arquivo contendo registros de lojas de fast food, o desafio consiste em
 importar esse arquivo no SGBD de sua preferência utilizando algum método de automatização
 levando em conta que poderá haver outros arquivos a serem importados com a mesma
